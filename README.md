@@ -1,96 +1,53 @@
-# Obsidian Sample Plugin
+# Markdown File Copy Plugin for Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This Obsidian plugin allows users to automatically copy markdown files from a specified source folder to a destination folder.
 
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
+## Features
 
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
+- **Single-click Copy**: Copy markdown files from a specified source folder to a destination folder with a single click.
+- **Automatic Copy**: An option to enable or disable the automatic copying of markdown files.
+- **Synchronization Interval**: Allows users to set the interval (in milliseconds) for automatic synchronization.
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+## Usage
 
-## First time developing plugins?
+### Setting up the Plugin
 
-Quick starting guide for new plugin devs:
+1. Install the plugin and enable it in Obsidian.
+2. Navigate to the plugin settings.
+3. Set the desired source and destination folders.
+4. Adjust the synchronization interval as needed (in milliseconds).
+5. Use the ribbon icon to manually copy the markdown files whenever needed.
+6. Use the "Automatic Copy" toggle to enable or disable automatic copying of files at the specified interval.
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+### Manual File Copy
 
-## Releasing new releases
+To manually copy the markdown files from the source to the destination:
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+1. Click on the ribbon icon on the Obsidian sidebar.
+2. The files will be copied instantly from the source to the destination folder.
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+### Automatic File Copy
 
-## Adding your plugin to the community plugin list
+1. Enable the "Automatic Copy" toggle in the plugin settings.
+2. The plugin will automatically copy files from the source to the destination at the set interval.
 
-- Check https://github.com/obsidianmd/obsidian-releases/blob/master/plugin-review.md
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+## Automatic File Copy and Performance
 
-## How to use
+When using the "Automatic File Copy" feature, it's important to note that it may increase Obsidian's CPU usage, especially if the synchronization interval is set to a very short duration. This can lead to Obsidian consuming more resources and potentially affecting the performance of other applications on your system. If you experience performance issues or increased CPU usage, consider increasing the synchronization interval or disabling the automatic copy feature.
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+## Settings
 
-## Manually installing the plugin
+- **Source Folder**: Specify the folder from which markdown files should be copied.
+- **Destination Folder**: Specify the folder to which the markdown files should be copied.
+- **Automatic Copy**: Toggle to enable or disable automatic copying of files.
+- **Synchronization Interval**: Define the time interval (in milliseconds) at which the automatic copying should occur.
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+## Bug 
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+## Note
 
-## Funding URL
+Make sure you have the necessary permissions for both the source and destination folders. Insufficient permissions can prevent the plugin from copying files.
 
-You can include funding URLs where people who use your plugin can financially support it.
+## Support
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
-
-If you have multiple URLs, you can also do:
-
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
-
-## API Documentation
-
-See https://github.com/obsidianmd/obsidian-api
+For any issues, suggestions, or feedback, please contact the developer.
