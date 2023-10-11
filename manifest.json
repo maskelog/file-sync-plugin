@@ -1,9 +1,9 @@
 {
-	"id": "file-sync-plugin",
-	"name": "File Sync Plugin",
-	"version": "0.1.0",
-	"description": "Synchronizes files from one folder to another.",
-	"main": "main.js",
-	"author": "maskelog",
-	"license": "MIT"
+  "id": "markdown-file-copy",
+  "name": "Markdown File Copy",
+  "version": "0.1.0",
+  "description": "Copies markdown files from one folder to another",
+  "author": "maskelog",
+  "isDesktopOnly": false,
+  "main": "main.ts"
 }
